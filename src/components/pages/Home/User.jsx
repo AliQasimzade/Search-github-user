@@ -17,18 +17,18 @@ const User = ({ user, userInfo, setUserInfo, searchUser }) => {
           login: res.data.login,
           imageUrl: res.data.avatar_url,
           reposCount: res.data.public_repos,
-          email:res.data.blog,
-          created_at:res.data.created_at.substr(0, 10),
+          email: res.data.blog,
+          created_at: res.data.created_at.substr(0, 10),
           following: res.data.following,
-          followers:res.data.followers,
-          location: res.data.location
+          followers: res.data.followers,
+          location: res.data.location,
         });
       })
       .catch((error) => console.log(error.message));
     console.log(userInfo);
   };
   return (
-    <Card sx={{maxWidth: 390}}>
+    <Card sx={{ maxWidth: 390 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -39,16 +39,39 @@ const User = ({ user, userInfo, setUserInfo, searchUser }) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h5" style={{wordWrap:"break-word"}}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h5"
+            style={{
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+            }}
+          >
             {user.login}
           </Typography>
-          <Typography variant="body2" color="text.secondary" style={{wordWrap:"break-word"}}>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            style={{
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+            }}
+          >
             <i className="fa-brands fa-github" style={{ fontSize: "22px" }}></i>
             <Link
               href={user.html_url}
               target="_blank"
               underline="none"
-              style={{ fontSize: "22px", marginLeft: "6px" }}
+              style={{
+                fontSize: "22px",
+                marginLeft: "6px",
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+              }}
             >
               {user.login}
             </Link>
